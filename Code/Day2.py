@@ -41,4 +41,41 @@ def checksums(input):
 
     return two * three
 
-print(checksums(input))
+def similarID(input):
+    #takes the list of strings.
+    strs = []
+    for i in range(len(input)):
+        j = i
+        while j < len(input) - 1:
+            j += 1
+            diffcount = 0
+            for crawl in range(len(input[0])):
+                if input[i][crawl] != input[j][crawl]:
+                    diffcount += 1
+            if diffcount == 1:
+                strs.append(input[i])
+                strs.append(input[j])
+                return strs
+
+def identical(input):
+    #takes the list of two strings only.
+    # Delete the first character which doesn't match between strings.
+    # Return the complete string answer.
+    strs = input
+    #convert strings to lists
+    for i in range(len(strs)):
+        strs[i] = list(strs[i])
+
+
+    for i in range(len(input[0])):
+        if input[0][i] != input[1][i]:
+            del(input[0][i])
+            return ''.join(input[0])
+
+
+# print(checksums(input))
+
+identical_strings = similarID(input)
+print(identical(identical_strings))
+
+# you can compare the strings visually to split out the non-identical letter.
