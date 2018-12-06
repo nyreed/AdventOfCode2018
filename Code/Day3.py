@@ -12,9 +12,9 @@ input = input[:-1]          # remove trailing ''.
 def init_fabric_array():
     fabric = []
     zeros = []
-    for i in range(0, 999):
+    for i in range(0, 1500):
         zeros.append(0)
-    for i in range(0, 999):
+    for i in range(0, 1500):
         fabric.append(zeros)
     return fabric
 
@@ -44,8 +44,8 @@ def mark_fabric(input, fabric):
     fabric = fabric
     for i in range(len(input)):
         claim = input[i]
-        for y in range(claim[1], claim[1] + claim[3]): #y-origin + height:
-            for x in range(claim[0], claim[0] + claim[2]): #x-origin + width
+        for y in range(claim[1], claim[1] + claim[3] + 1): #y-origin + height:
+            for x in range(claim[0], claim[0] + claim[2] + 1): #x-origin + width
                 fabric[y][x] += 1
     return fabric
 
