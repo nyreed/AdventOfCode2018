@@ -10,6 +10,7 @@ input = input[:-1]          # remove trailing ''.
 # We add to them to generate the frequency of claims which use that square of cloth.
 
 def init_fabric_array():
+    #arbitrary width
     fabric = []
     zeros = []
     for i in range(0, 1500):
@@ -38,7 +39,7 @@ def clean_data(input):
         input[i] = output
     return input
 
-#Increment the matrix for each time a square needed for a fabric claim.
+#Increment the value at each co-ord for each time it's needed for a fabric claim.
 #Input as list of claims in list format -> [x, y, width, height]
 def mark_fabric(input, fabric):
     fabric = fabric
